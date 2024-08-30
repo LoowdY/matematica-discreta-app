@@ -131,27 +131,27 @@ def main():
         """)
 
     elif choice == "Indução Padrão":
-        st.subheader("Indução Padrão")
+        
         run_standard_induction()
 
     elif choice == "Indução Forte":
-        st.subheader("Indução Forte")
+        
         run_strong_induction()
 
     elif choice == "Indução Estrutural":
-        st.subheader("Indução Estrutural")
+        
         run_structural_induction()
 
     elif choice == "Questionário":
-        st.subheader("Teste seu conhecimento")
+        
         run_quiz()
 
     elif choice == "Exercícios Extras":
-        st.subheader("Exercícios Extras")
+        
         run_exercises_2()
 
     elif choice == "Dúvidas Comuns":
-        st.subheader("FAQ - Dúvidas Comuns")
+        
         run_faq()
 def run_standard_induction():
     st.write("""
