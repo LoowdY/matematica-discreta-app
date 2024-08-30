@@ -565,5 +565,7 @@ def run_exercises_2():
         st.write("A soma dos primeiros \( k+1 \) números naturais é, de fato, igual à fórmula fornecida.")
 
 if __name__ == "__main__":
+    
     main()
-
+    
+    st.write("Autores: João Renan Lopes e Pedro Herique Girotto")
