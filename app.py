@@ -4,6 +4,7 @@ import random
 import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
+import os
 
 st.set_page_config(
     page_title="Indução Matemática - CC2TA",
@@ -564,6 +565,6 @@ def run_exercises_2():
         st.write("A soma dos primeiros \( k+1 \) números naturais é, de fato, igual à fórmula fornecida.")
 
 if __name__ == "__main__":
-    st.image('C:\projetos\python\mat-disc\cesupa_img.png',width=100)
+
     main()
 
