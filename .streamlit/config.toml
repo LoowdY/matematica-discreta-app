@@ -1,0 +1,8 @@
+# .streamlit/config.toml
+
+[theme]
+base="dark"
+primaryColor="#1f77b4"  # Azul escuro para os elementos principais
+backgroundColor="#0f0f0f"  # Cor de fundo escura
+secondaryBackgroundColor="#1e1e1e"  # Cor de fundo secundária
+textColor="#ffffff"  # Cor do texto
