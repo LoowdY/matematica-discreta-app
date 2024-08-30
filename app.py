@@ -445,6 +445,7 @@ def run_faq():
         st.write("Suponha que 2^k ≥ k^2 para algum k ≥ 4. Queremos provar que:")
         st.latex(sp.latex(step))
 
+
 def run_exercises_2():
     st.title("Exercícios de Matemática Discreta")
 
@@ -452,120 +453,110 @@ def run_exercises_2():
     n, k, i = sp.symbols('n k i')
 
     # Exercício 1
-    st.write("**Exercício 1:** Prove que para todo \( n \geq 1 \), \( n^3 - n \) é divisível por 6.")
-    st.write("**Clique no botão abaixo para ver a resposta e a resolução passo a passo.**")
+    st.latex(r"Exercício\ 1:\ Divisibilidade\ de\ n^3 - n\ por\ 6")
+    st.latex(r"Queremos\ provar\ que\ a\ expressão\ n^3 - n\ é\ divisível\ por\ 6\ para\ todo\ n \geq 1.")
     
     if st.button("Mostrar Respostas Exercício 1"):
-        # Divisibilidade por 2
-        st.write("**Divisibilidade por 2:**")
-        st.write("Entre \( n-1 \), \( n \) e \( n+1 \), pelo menos um é par, garantindo que o produto \( n(n-1)(n+1) \) é divisível por 2.")
-        
-        # Divisibilidade por 3
-        st.write("**Divisibilidade por 3:**")
         st.latex(r'''
-            \text{Para } n \mod 3:
-            \begin{cases}
-            \text{Se } n \equiv 0 \mod 3, & \text{então } n^3 - n \equiv 0 \mod 3. \\
-            \text{Se } n \equiv 1 \mod 3, & \text{então } n^3 - n \equiv 0 \mod 3. \\
-            \text{Se } n \equiv 2 \mod 3, & \text{então } n^3 - n \equiv 0 \mod 3.
-            \end{cases}
-            \text{Em todos os casos, } n^3 - n \text{ é divisível por 3.}
+        \textbf{Divisibilidade por 2:}
+        \text{Observamos que entre } n-1, n, \text{ e } n+1, \text{ pelo menos um deles é par.}
+        \text{Portanto, o produto } n(n-1)(n+1) \text{ é divisível por 2.}
         ''')
-        st.write("Portanto, \( n^3 - n \) é divisível por 6 para todo \( n \geq 1 \).")
+
+        st.latex(r'''
+        \textbf{Divisibilidade por 3:}
+        \text{Agora, analisemos a divisibilidade por 3 considerando os casos:}
+        ''')
+
+        st.latex(r'''
+        \begin{cases}
+        n \equiv 0 \pmod{3} & \text{então } n^3 - n \equiv 0 \pmod{3} \\
+        n \equiv 1 \pmod{3} & \text{então } n^3 - n \equiv 0 \pmod{3} \\
+        n \equiv 2 \pmod{3} & \text{então } n^3 - n \equiv 0 \pmod{3}
+        \end{cases}
+        ''')
+
+        st.latex(r'''
+        \text{Portanto, como } n^3 - n \text{ é divisível tanto por 2 quanto por 3, ele é divisível por 6.}
+        ''')
 
     # Exercício 2
-    st.write("**Exercício 2:** Prove que a soma dos primeiros \( n \) números ímpares é igual a \( n^2 \).")
-    st.write("**Clique no botão abaixo para ver a resposta e a resolução passo a passo.**")
-    
-    if st.button("Mostrar Respostas Exercício 2"):
-        # Base da Indução
-        st.write("**Base da Indução:**")
-        sum_odd_base = sp.Sum(2*i - 1, (i, 1, 1)).doit()
-        st.write("A soma dos primeiros 1 número ímpar é 1, que é igual a 1².")
-        st.latex(sp.latex(sum_odd_base))
+    st.latex(r"Exercício\ 2:\ Soma\ dos\ Primeiros\ n\ Números\ Ímpares")
+    st.latex(r"Prove\ que\ a\ soma\ dos\ primeiros\ n\ números\ ímpares\ é\ igual\ a\ n^2.")
 
-        # Passo Indutivo
+    if st.button("Mostrar Respostas Exercício 2"):
+        st.latex(r'''
+        \textbf{Base da Indução:}
+        \text{Para } n = 1, \text{ a soma dos primeiros 1 número ímpar é 1, que é igual a } 1^2.
+        ''')
+
+        st.latex(r'''
+        1 = 1^2
+        ''')
+
+        st.latex(r'''
+        \textbf{Passo Indutivo:}
+        \text{Suponha que a soma dos primeiros } k \text{ números ímpares seja } k^2.
+        \text{Queremos mostrar que a soma dos primeiros } k+1 \text{ números ímpares é } (k+1)^2.
+        ''')
+
         sum_odd_k = sp.Sum(2*i - 1, (i, 1, k))
         sum_odd_k_plus_1 = sum_odd_k.doit() + (2*(k + 1) - 1)
-        st.write("**Passo Indutivo:**")
-        st.write("Suponha que a soma dos primeiros \( k \) números ímpares é \( k^2 \).")
-        st.write("Para \( n = k \):")
-        st.latex(sp.latex(sum_odd_k.doit()))
-        st.write("Queremos mostrar que a soma dos primeiros \( k+1 \) números ímpares é \( (k+1)^2 \).")
-        st.write("Para \( n = k+1 \):")
         st.latex(sp.latex(sum_odd_k_plus_1))
-        st.write("Compare com \( (k+1)^2 \):")
+        st.latex(r'''
+        \text{Compare com } (k+1)^2:
+        ''')
         st.latex(sp.latex((k + 1)**2))
-        st.write("A soma dos primeiros \( k+1 \) números ímpares é, de fato, igual a \( (k+1)^2 \).")
+        st.latex(r"Portanto,\ a\ soma\ dos\ primeiros\ k+1\ números\ ímpares\ é\ igual\ a\ (k+1)^2.")
 
     # Exercício 3
-    st.write("**Exercício 3:** Prove que \( 5^n - 1 \) é divisível por 4 para todo \( n \geq 1 \).")
-    st.write("**Clique no botão abaixo para ver a resposta e a resolução passo a passo.**")
-    
-    if st.button("Mostrar Respostas Exercício 3"):
-        # Base da Indução
-        st.write("**Base da Indução:**")
-        base_case = 5**1 - 1
-        st.write("Para \( n = 1 \): 5^1 - 1 = 4, que é divisível por 4.")
-        st.latex(sp.latex(base_case))
+    st.latex(r"Exercício\ 3:\ Divisibilidade\ de\ 5^n - 1\ por\ 4")
+    st.latex(r"Prove\ que\ 5^n - 1\ é\ divisível\ por\ 4\ para\ todo\ n \geq 1.")
 
-        # Passo Indutivo
-        st.write("**Passo Indutivo:**")
+    if st.button("Mostrar Respostas Exercício 3"):
+        st.latex(r'''
+        \textbf{Base da Indução:}
+        \text{Para } n = 1: 5^1 - 1 = 4, \text{ que é divisível por 4.}
+        ''')
+
+        st.latex(r'''
+        \textbf{Passo Indutivo:}
+        \text{Suponha que } 5^k - 1 \text{ seja divisível por 4.}
+        \text{Queremos mostrar que } 5^{k+1} - 1 \text{ também é divisível por 4.}
+        ''')
+
         expression = 5**(k+1) - 1
         prev_expression = 5**k - 1
         diff = expression - 5 * prev_expression
-        st.write("Para \( n = k \):")
-        st.latex(sp.latex(prev_expression))
-        st.write("Queremos mostrar que \( 5^{k+1} - 1 \) é divisível por 4.")
-        st.write("A diferença entre \( 5^{k+1} - 1 \) e \( 5(5^k - 1) \) é:")
         st.latex(sp.latex(diff.simplify()))
-        st.write("A diferença é divisível por 4, portanto, a proposição é verdadeira para \( n = k+1 \).")
+        st.latex(r"Como\ a\ diferença\ é\ divisível\ por\ 4,\ a\ proposição\ é\ verdadeira\ para\ n = k+1.")
 
     # Exercício 4
-    st.write("**Exercício 4:** Prove que para todo \( n \geq 1 \), \( n^2 + n \) é divisível por 2.")
-    st.write("**Clique no botão abaixo para ver a resposta e a resolução passo a passo.**")
-    
+    st.latex(r"Exercício\ 4:\ Divisibilidade\ de\ n^2 + n\ por\ 2")
+    st.latex(r"Prove\ que\ para\ todo\ n \geq 1,\ n^2 + n\ é\ divisível\ por\ 2.")
+
     if st.button("Mostrar Respostas Exercício 4"):
-        # Base da Indução
-        st.write("**Base da Indução:**")
-        base_case = n**2 + n
-        st.write("Para \( n = 1 \): 1² + 1 = 2, que é divisível por 2.")
-        st.latex(sp.latex(base_case.subs(n, 1)))
+        st.latex(r'''
+        \textbf{Base da Indução:}
+        \text{Para } n = 1: 1^2 + 1 = 2, \text{ que é divisível por 2.}
+        ''')
 
-        # Passo Indutivo
-        st.write("**Passo Indutivo:**")
+        st.latex(r'''
+        \textbf{Passo Indutivo:}
+        \text{Suponha que para } n = k, \text{ a expressão } k^2 + k \text{ seja divisível por 2.}
+        \text{Queremos mostrar que para } n = k+1, \text{ a expressão } (k+1)^2 + (k+1) \text{ também é divisível por 2.}
+        ''')
+
         next_case = (k + 1)**2 + (k + 1)
-        st.write("Para \( n = k+1 \):")
         st.latex(sp.latex(next_case))
-        st.write("Compare com a expressão para \( n = k \):")
+        st.latex(r'''
+        \text{Compare com a expressão para } n = k:
+        ''')
         st.latex(sp.latex(k**2 + k))
-        st.write("A diferença é divisível por 2, portanto, a proposição é verdadeira para \( n = k+1 \).")
-
-    # Exercício 5
-    st.write("**Exercício 5:** Prove que a soma dos primeiros \( n \) números naturais é igual a \( \frac{n(n+1)}{2} \).")
-    st.write("**Clique no botão abaixo para ver a resposta e a resolução passo a passo.**")
-    
-    if st.button("Mostrar Respostas Exercício 5"):
-        # Base da Indução
-        st.write("**Base da Indução:**")
-        base_sum = sp.Sum(i, (i, 1, 1)).doit()
-        st.write("A soma dos primeiros 1 número natural é 1, que é igual a \( \frac{1 \cdot (1+1)}{2} \).")
-        st.latex(sp.latex(base_sum))
-
-        # Passo Indutivo
-        sum_n = sp.Sum(i, (i, 1, n))
-        sum_n_plus_1 = sum_n.doit() + (n + 1)
-        formula_n_plus_1 = (n + 1) * (n + 2) / 2
-        st.write("Para \( n = k \), a soma é:")
-        st.latex(sp.latex(sum_n.doit()))
-        st.write("Para \( n = k+1 \), a soma é:")
-        st.latex(sp.latex(sum_n_plus_1))
-        st.write("Compare com a fórmula para \( n = k+1 \):")
-        st.latex(sp.latex(formula_n_plus_1))
-        st.write("A soma dos primeiros \( k+1 \) números naturais é, de fato, igual à fórmula fornecida.")
+        st.latex(r"Como\ a\ diferença\ é\ divisível\ por\ 2,\ a\ proposição\ é\ verdadeira\ para\ n = k+1.")
 
 if __name__ == "__main__":
     
     main()
-    
+
     st.write("Autores: João Renan Lopes e Pedro Herique Girotto")
